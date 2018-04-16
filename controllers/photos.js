@@ -47,10 +47,60 @@ function photosShow(req, res) {
 }
 
 
+function photosEdit(req, res) {
+  Photo
+    .findById(req.params.id)
+    .exec()
+    .then(photo => {
+      if(!photo) return res.sendStatus(404);
+      return res.render('photos/edit', { photo });
+    })
+    .catch(err => {
+      console.log(err);
+      return res.sendStatus(500);
+    });
+}
 
+function photosUpdate(req, res) {
+  Photo
+    .findById(req.params.id)
+    .exec()
+    .then(photo => {
+      if(!photo) return res.sendStatus(404);
+      Object.assign(photo, req.body);
+      return photo.save();
+    })
+    .then(() => res.redirect(`/photos/${req.params.id}`)) // goes back to show
+    .catch(err => {
+      console.log(err);
+      return res.sendStatus(500);
+    });
+}
 
+function photosDelete(req, res) {
+  Photo
+    .findById(req.params.id)
+    .exec()
+    .then(photo => {
+      if(!photo) return res.sendStatus(404);
+      return photo.remove();
+    })
+    .then(() => res.redirect('/photos'))
+    .catch(err => {
+      console.log(err);
+      return res.sendStatus(500);
+    });
+}
 
-
+module.exports = {
+  index: photosIndex,
+  new: photosNew,
+  create: photosCreate,
+  show: photosShow,
+  edit: photosEdit,
+  update: photosUpdate,
+  delete: photosDelete
+};
 
 
 

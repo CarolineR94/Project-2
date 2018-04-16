@@ -29,7 +29,22 @@ router.get('/', (req, res) => res.render('index'));
 
 // photo routes
 
+router.route('/photos') // controllers/photos
+  .get(photos.index)
+  .post(photos.create);
 
+
+router.route('/photos/new')
+  .get(secureRoute, photos.new);
+
+router.route('/photos/:id')
+  .get(photos.show)
+  .delete(photos.delete)
+  .put(photos.update);
+
+
+router.route('/photos/:id/edit')
+  .get(photos.edit);
 
 // authentication
 

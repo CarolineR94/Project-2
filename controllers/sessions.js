@@ -13,6 +13,7 @@ function createRoute(req, res) {
     .findOne({email: req.body.email})
     .then((user) =>{
       if(!user || !user.validatePassword(req.body.password)){
+        req.flash('danger', 'Incorrect details.');
         res.status(401).render('auth/login', {message: 'Wrong credentials'});
       }
       req.session.userId = user.id;
