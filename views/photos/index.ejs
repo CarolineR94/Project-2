@@ -5,17 +5,33 @@
   <% photos.forEach(photo => { %>
     <div class="col s12 m4">
       <div class="card">
+
         <div class="card-image">
-          <img src="<%= photo.url %>">
+          <img class="activator" src="<%= photo.url %>">
         </div>
+
         <div class="card-content">
         <p><%= photo.caption %></p>
           // show comments
         </div>
+
         <div class="card-action">
-        <a href="/photos/<%= photo._id %>" class="green-text">View Photo</a>
-        <a href="/photos/<%= photo._id %>/edit" class="orange-text">Edit Photo</a>
+          <div class="input-field">
+            <input id="comment" type="comment" class="comment">
+            <label for="comment">Add comment...</label>
+          </div>
         </div>
+
+        <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">Options<i class="material-icons right">close</i></span>
+          <a href="/photos/<%= photo._id %>" class="waves-effect waves-light btn">View</a>
+          <a href="/photos/<%= photo._id %>/edit"class="waves-effect waves-light btn">Edit</a>
+          <form method="POST" action="/photos/<%= photo._id %>">
+           <input type="hidden" name="_method" value="delete">
+           <button class="waves-effect waves-light red btn">Delete</button>
+         </form>
+        </div>
+
       </div>
     </div>
   <% }) %>
