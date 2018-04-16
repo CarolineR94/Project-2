@@ -3,7 +3,8 @@
      <a href="/" class="brand-logo">Instagram</a>
      <ul id="nav-mobile" class="right hide-on-med-and-down">
        <% if(locals.isLoggedIn){ %>
-         <li><a href="/logout">Logout (Signed in as <%= locals.user.username %>)</a></li>
+         <li><a href="/photos/new">Add Photo</a></li>
+         <li><a href="/logout">Logout</a></li>
         <% } else { %>
          <li><a href="/signup">Sign Up</a></li>
          <li><a href="/signin">Sign In</a></li>

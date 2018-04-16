@@ -15,7 +15,7 @@ function photosIndex(req, res) {
 }
 
 function photosNew(req, res) {
-  return res.render('photos/new');
+  res.render('photos/new', {error: null});
 }
 
 function photosCreate(req, res) {
@@ -26,7 +26,7 @@ function photosCreate(req, res) {
     .then(() => res.redirect('/photos'))
     .catch((error) =>{
       if(error.name === 'ValidationError'){
-        return res.BadRequest('/albums/new', error.toString());
+        return res.BadRequest('/photos/new', error.toString());
       }
     });
 }
@@ -70,7 +70,7 @@ function photosUpdate(req, res) {
       Object.assign(photo, req.body);
       return photo.save();
     })
-    .then(() => res.redirect(`/photos/${req.params.id}`)) // goes back to show
+    .then(photo => res.redirect(`/photos/${photo._id}`)) // goes back to show
     .catch(err => {
       console.log(err);
       return res.sendStatus(500);
@@ -101,35 +101,3 @@ module.exports = {
   update: photosUpdate,
   delete: photosDelete
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const User = require('../models/user');
-//
-// function indexRoute(req, res) {
-//   User
-//     .find()
-//     .exec()
-//     .then((users) => res.render('index', { users }));
-// }
-//
-//
-// function privateRoute(req, res){
-//   res.render('private');
-// }
-//
-// module.exports = {
-//   index: indexRoute,
-//   private: privateRoute
-// };

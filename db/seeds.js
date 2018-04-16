@@ -23,6 +23,7 @@ Photo.create([{
   comments: 'comments go here'
 
 
-
-
-}]);
+}])
+  .then(photos => console.log(`You have just made ${photos.length} photos`))
+  .catch(err => console.log(err))
+  .finally(()=> mongoose.connection.close());
