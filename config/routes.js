@@ -25,7 +25,7 @@ function secureRoute (req, res, next){
   return next();
 }
 
-router.get('/', (req, res) => res.render('index'));
+router.get('/', (req, res) => res.render('photos/index'));
 
 // photo routes
 

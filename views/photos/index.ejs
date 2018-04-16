@@ -1,1 +1,21 @@
-<h1>photos home</h1>
+<div class="row">
+
+  <% photos.forEach(photo => { %>
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-image">
+          <img src="<%= photo.url %>">
+        </div>
+        <div class="card-content">
+        <p><%= photo.caption %></p>
+          // show comments
+        </div>
+        <div class="card-action">
+        <a href="/photos/<%= photo._id %>" class="green-text">View Photo</a>
+        <a href="/photos/<%= photo._id %>/edit" class="orange-text">Edit Photo</a>
+        </div>
+      </div>
+    </div>
+  <% }) %>
+
+</div>
