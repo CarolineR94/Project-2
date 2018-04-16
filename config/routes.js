@@ -25,21 +25,32 @@ function secureRoute (req, res, next){
   return next();
 }
 
+
+// photo routes
+
+
+
+// authentication
 router.route('/')
   .get(photos.index);
 
 router.route('/private')
   .get(secureRoute, photos.private);
 
-router.route('/register')
+router.route('/signup')
   .get(registrations.new)
   .post(registrations.create);
 
-router.route('/login')
+router.route('/signin')
   .get(sessions.new)
   .post(sessions.create);
 
 router.route('/logout')
   .get(sessions.delete);
+
+
+router.route('/*').get((req, res) => {
+  res.render('statics/404.ejs');
+});
 
 module.exports = router;

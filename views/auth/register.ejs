@@ -1,27 +1,41 @@
 <%# danger message
 register layout %>
 
-<% if(locals.message){ %>
-  <p><%= message %></p>
-<% } %>
+
+<div class="row">
+  <% if(messages.danger){ %>
+    <div class="col s12 l12">
+      <div class="card red lighten-3">
+        <div class="card-content red-text">
+          <span class="card-title"><%= messages.danger %></span>
+        </div>
+      </div>
+    </div>
+  <% } %>
 
 
-<form method="POST" action="/register">
-  <div>
-    <label for="username">Username</label>
-    <input type="text" name="username" id="username">
-  </div>
-  <div>
-    <label for="email">Email</label>
-    <input type="text" name="email" id="email">
-  </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password">
-  </div>
-  <div>
-    <label for="passwordConfirmation">Password Confirmation</label>
-    <input type="password" name="passwordConfirmation" id="passwordConfirmation">
-  </div>
-  <button class="button">Register</button>
-</form>
+  <h2>Sign up</h2>
+  <form class="col l12" action="/signup" method="post">
+    <div class="input-field col l12">
+      <input type="text" name="username" id="username_field">
+      <label for="username_field">Username</label>
+    </div>
+    <div class="input-field col l12">
+      <input type="email" name="email" id="email_field" required>
+      <label for="email_field">Email</label>
+    </div>
+    <div class="input-field col l12">
+      <input type="password" name="password" id="password_field" required>
+      <label for="password_field">Password</label>
+    </div>
+    <div class="input-field col l12">
+      <input type="password" name="passwordConfirmation" id="password_field" required>
+      <label for="password_field">Password Confirmation</label>
+    </div>
+
+    <div class="input-field col l12">
+      <button class="green btn"> Sign Up</button>
+    </div>
+  </form>
+
+</div>
