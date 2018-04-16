@@ -25,17 +25,19 @@ function secureRoute (req, res, next){
   return next();
 }
 
+router.get('/', (req, res) => res.render('index'));
 
 // photo routes
 
 
 
 // authentication
-router.route('/')
-  .get(photos.index);
 
-router.route('/private')
-  .get(secureRoute, photos.private);
+// router.route('/')
+//   .get(photos.index);
+
+// router.route('/private')
+//   .get(secureRoute, photos.private);
 
 router.route('/signup')
   .get(registrations.new)

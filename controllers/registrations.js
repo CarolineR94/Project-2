@@ -18,6 +18,7 @@ function createRoute(req, res){
     })
     .catch((err) => {
       if(err.name === 'ValidationError'){
+        req.flash('danger', 'Error.');
         return res.status(400).render('auth/register', {message: err.toString()});
       }
     });
