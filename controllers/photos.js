@@ -6,8 +6,12 @@ const Photo = require('../models/photo');
 function photosIndex(req, res) {
   Photo
     .find()
+    .populate('user')
     .exec()
-    .then(photos => res.render('photos/index', { photos }))
+    .then(photos => {
+      console.log(photos);
+      res.render('photos/index', { photos });
+    })
     .catch(err => {
       console.log(err);
       return res.sendStatus(500);

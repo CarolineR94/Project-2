@@ -12,7 +12,9 @@
         </div>
 
         <div class="card-content">
-        <p class="activator"><%= locals.user.username %></p>
+        <% if(photo.user) { %>
+        <p class="activator"><%= photo.user.username %></p>
+        <% } %>
         <p class="activator"><%= photo.caption %></p>
         <p class="activator"><%= photo.comments %></p>
 
