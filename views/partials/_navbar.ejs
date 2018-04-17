@@ -5,7 +5,7 @@
        <% if(locals.isLoggedIn){ %>
          <li><a href="/photos/new"> <i class="material-icons">add_a_photo</i></a></li>
          <% if(locals.user.picture === '') { %>
-           <li class="profilePicture"><i class="material-icons">person_outline</i></li>
+           <li class="profilePicture"><a href="/users/<%= locals.user._id %>/edit"> <i class="material-icons">person_outline</i></a></li>
            <% } else { %>
              <li><img class="profilePicture" src="<%= locals.user.picture %>"></li>
              <% } %>

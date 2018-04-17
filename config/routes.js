@@ -1,18 +1,10 @@
-// constants: router photos registrations sessions
-// functions: secure route
-// routes: 7 crud restful for photos
-// authentication routes: signup, signin, logout
-// 404 route
-//
-// export router
-
-
 const express  = require('express');
 const router   = express.Router();
 
 const photos = require('../controllers/photos');
 const registrations = require('../controllers/registrations');
 const sessions = require('../controllers/sessions');
+const users = require('../controllers/users');
 
 
 function secureRoute (req, res, next){
@@ -48,12 +40,6 @@ router.route('/photos/:id/edit')
 
 // authentication
 
-// router.route('/')
-//   .get(photos.index);
-
-// router.route('/private')
-//   .get(secureRoute, photos.private);
-
 router.route('/signup')
   .get(registrations.new)
   .post(registrations.create);
@@ -64,6 +50,16 @@ router.route('/signin')
 
 router.route('/logout')
   .get(sessions.delete);
+
+
+
+// user routes
+
+router.route('/users/:id/edit')
+  .get(users.edit);
+
+
+
 
 
 router.route('/*').get((req, res) => {
