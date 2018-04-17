@@ -1,23 +1,26 @@
 
 
 <div class="row">
-
     <div class="col s12 m4">
       <div class="card">
+
         <div class="card-image">
           <img src="<%= photo.url %>">
         </div>
+
         <div class="card-content">
-        <p><%= photo.caption %></p>
+          <p><%= locals.user.username %><i class="material-icons right">more_vert</i></p>
+          <p><%= photo.caption %></p>
           // show comments
         </div>
+
         <div class="card-action">
-        // add comment function
-        <form method="POST" action="/photos/<%= photo._id %>">
-         <input type="hidden" name="_method" value="delete">
-         <button class="red btn">Delete</button>
-       </form>
+          <div class="input-field">
+            <input id="comment" type="comment" class="comment">
+            <label for="comment">Add comment...</label>
+          </div>
         </div>
+
       </div>
     </div>
 

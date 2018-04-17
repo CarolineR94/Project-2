@@ -17,13 +17,26 @@ const Photo = require('../models/photo');
 Photo.collection.drop();
 
 
-Photo.create([{
-  url: 'http://via.placeholder.com/350x150',
-  caption: 'caption goes here',
-  comments: 'comments go here'
-
-
-}])
+Photo.create([
+  {url: 'http://via.placeholder.com/350x150',
+    caption: 'caption 1',
+    comments: 'comments go here'},
+  {url: 'http://via.placeholder.com/350x150',
+    caption: 'caption 2',
+    comments: 'comments go here'},
+  {url: 'http://via.placeholder.com/350x150',
+    caption: 'caption 3',
+    comments: 'comments go here'},
+  {url: 'http://via.placeholder.com/350x150',
+    caption: 'caption 4',
+    comments: 'comments go here'},
+  {url: 'http://via.placeholder.com/350x150',
+    caption: 'caption 5',
+    comments: 'comments go here'},
+  {url: 'http://via.placeholder.com/350x150',
+    caption: 'caption 6',
+    comments: 'comments go here'}
+])
   .then(photos => console.log(`You have just made ${photos.length} photos`))
   .catch(err => console.log(err))
   .finally(()=> mongoose.connection.close());

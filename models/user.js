@@ -13,7 +13,8 @@ mongoose.Promise = require('bluebird');
 const userSchema = new mongoose.Schema({
   username: String,
   email: String,
-  password: { type: String, required: true }
+  picture: {type: String, required: false},
+  password: {type: String, required: true}
 });
 
 
@@ -29,7 +30,7 @@ userSchema
   });
 
 
-userSchema.pre('validate', function checkPassword(next){      
+userSchema.pre('validate', function checkPassword(next){
   if(this.isModified('password') && this._passwordConfirmation !== this.password){
     this.invalidate('passwordConfirmation', 'does not match');
   }

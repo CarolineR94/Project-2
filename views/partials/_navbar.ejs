@@ -1,15 +1,16 @@
-
-<ul id="dropdown1" class="dropdown-content">
-  <li><a href="/logout">Logout</a></li>
-</ul>
-
 <nav>
-   <div class="nav-wrapper">
+   <div class="nav-wrapper indigo">
      <a href="/" class="brand-logo center">Instagram</a>
      <ul id="nav-mobile" class="right hide-on-med-and-down">
        <% if(locals.isLoggedIn){ %>
-         <li><a href="/photos/new">Add Photo</a></li>
-         <li><a class="dropdown-trigger" href="#" data-target="dropdown1"><%= locals.user.username %><i class="material-icons right">arrow_drop_down</i></a></li>
+         <li><a href="/photos/new"> <i class="material-icons">add_a_photo</i></a></li>
+         <% if(locals.user.picture === '') { %>
+           <li class="profilePicture"><i class="material-icons">person_outline</i></li>
+           <% } else { %>
+             <li><img class="profilePicture" src="<%= locals.user.picture %>"></li>
+             <% } %>
+         <li><a href="/logout"> <i class="material-icons">exit_to_app</i></a></li>
+
 
         <% } else { %>
          <li><a href="/signup">Sign Up</a></li>

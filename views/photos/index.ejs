@@ -11,24 +11,24 @@
         </div>
 
         <div class="card-content">
-        <p><%= photo.caption %></p>
-          // show comments
+        <p class="activator"><%= photo.caption %></p>
+        <p class="activator"><%= photo.comments %></p>
+
         </div>
 
         <div class="card-action">
           <div class="input-field">
-            <input id="comment" type="comment" class="comment">
-            <label for="comment">Add comment...</label>
+            <input id="comment" type="comment" class="comment" placeholder="Add comment...">
           </div>
         </div>
 
         <div class="card-reveal">
         <span class="card-title grey-text text-darken-4">Options<i class="material-icons right">close</i></span>
-          <a href="/photos/<%= photo._id %>" class="waves-effect waves-light btn">View</a>
-          <a href="/photos/<%= photo._id %>/edit"class="waves-effect waves-light btn">Edit</a>
+          <a href="/photos/<%= photo._id %>" class="waves-effect waves-light btn reveal indigo accent-4">View</a>
+          <a href="/photos/<%= photo._id %>/edit"class="waves-effect waves-light btn reveal indigo accent-4">Edit</a>
           <form method="POST" action="/photos/<%= photo._id %>">
            <input type="hidden" name="_method" value="delete">
-           <button class="waves-effect waves-light red btn">Delete</button>
+           <button class="waves-effect waves-light red btn reveal indigo darken-4">Delete</button>
          </form>
         </div>
 
