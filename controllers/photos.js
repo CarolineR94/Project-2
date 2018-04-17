@@ -105,18 +105,17 @@ function commentCreate(req, res){
     .exec()
     .then(photo =>{
       req.body.user = req.currentUser;
+      const comment = new Comment(req.body);
 
-      Comment
-        .create(req.body)
-        .then(comment => {
-          photo.comments.push(comment);
-          return photo.save();
-        })
-        .then(photo => {
-          res.redirect(`/photos/${photo._id}`);
-        });
-    });
+      photo.comments.push(comment);
+      return photo.save();
+    })
+    .then(photo => {
+      res.redirect(`/photos/${photo._id}`);
+    })
+    .catch(err => console.log(err));
 }
+
 
 
 

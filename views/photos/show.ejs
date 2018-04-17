@@ -7,23 +7,28 @@
       </div>
 
       <div class="card-content">
+
         <% if(photo.user) { %>
         <p><%= photo.user.username %></p>
         <% } %>
+
         <p><%= photo.caption %></p>
 
-        <% photo.forEach(photo => { %>
+
+        <% photo.comments.forEach(photo => { %>
         <p><%= photo.comments %></p>
         <% }) %>
 
+        <div class="card-action">
+          <div class="input-field">
+            <textarea id="textarea<%= photo._id %>" class="materialize-textarea"></textarea>
+            <label for="textarea<%= photo._id %>">Add comment...</label>
+          </div>
+        </div>
+        
       </div>
 
-      <div class="card-action">
-        <div class="input-field">
-          <textarea id="textarea<%= photo._id %>" class="materialize-textarea"></textarea>
-          <label for="textarea<%= photo._id %>">Add comment...</label>
-        </div>
-      </div>
+
 
 
     </div>

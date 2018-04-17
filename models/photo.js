@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 
 const commentSchema = new mongoose.Schema({
-  content: String
+  content: String,
+  user: {type: mongoose.Schema.ObjectId, ref: 'User'}
 });
 
 const photoSchema = new mongoose.Schema({
@@ -14,4 +15,4 @@ const photoSchema = new mongoose.Schema({
 
 
 
-module.exports = mongoose.model('Photo', photoSchema, 'Comment', commentSchema);
+module.exports = mongoose.model('Photo', photoSchema);
