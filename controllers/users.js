@@ -4,9 +4,9 @@ function showRoute(req, res) {
   User
     .findById(req.params.id)
     .exec()
-    .then(users => {
-      if(users) return res.sendStatus(404);
-      return res.render('users/show', {users });
+    .then(user => {
+      if(!user) return res.sendStatus(404);
+      return res.render('users/show', { user });
     })
     .catch(err => {
       console.log(err);
@@ -29,8 +29,6 @@ function editRoute(req, res) {
     });
 }
 
-
-
 function updateRoute(req, res) {
   User
     .findById(req.params.id)
@@ -40,7 +38,9 @@ function updateRoute(req, res) {
       Object.assign(user, req.body);
       return user.save();
     })
-    .then(user => res.redirect(`/users/${user._id}`)) 
+    .then(user => {
+      res.redirect(`/users/${user._id}`);
+    })
     .catch(err => {
       console.log(err);
       return res.sendStatus(500);

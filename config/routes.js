@@ -55,12 +55,12 @@ router.route('/logout')
 
 // user routes
 
-router.route('/users/:id/edit')
-  .get(users.edit);
-
 router.route('/users/:id')
   .get(users.show)
   .put(users.update);
+
+router.route('/users/:id/edit')
+  .get(users.edit);
 
 
 
