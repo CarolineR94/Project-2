@@ -12,6 +12,7 @@
         </div>
 
         <div class="card-content">
+        <p class="activator"><%= locals.user.username %></p>
         <p class="activator"><%= photo.caption %></p>
         <p class="activator"><%= photo.comments %></p>
 
@@ -19,7 +20,8 @@
 
         <div class="card-action">
           <div class="input-field">
-            <input id="comment" type="comment" class="comment" placeholder="Add comment...">
+            <textarea id="textarea" class="materialize-textarea"></textarea>
+            <label for="textarea">Add comment...</label>
           </div>
         </div>
 

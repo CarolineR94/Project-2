@@ -1,21 +1,27 @@
-<form class="col l12" action="users<%= user.id%>/edit" method="post">
-  <div class="input-field col l12">
-    <input type="text" name="username" id="username_field" value="<%= user.username%>">
-    <label for="username_field">Username</label>
-  </div>
-  <div class="input-field col l12">
-    <input type="email" name="email" id="email_field" value="<%= user.email%>">
-    <label for="email_field">Email</label>
-  </div>
-  <div class="input-field col l12">
-    <input type="text" name="picture" id="picture_field" value="<%= user.picture%>">
-    <label for="picture_field">Profile Picture</label>
-  </div>
+<form class="col l12" action="users/<%= user.id%>/edit" method="post">
+  <input type="hidden" name="_method" value="PUT">
+
+  <div class="row">
+
+    <div class="input-field col l12">
+      <input type="text" name="username" id="username_field" value="<%= user.username%>">
+      <label for="username_field">Username</label>
+    </div>
+
+    <div class="input-field col l12">
+      <input type="email" name="email" id="email_field" value="<%= user.email%>">
+      <label for="email_field">Email</label>
+    </div>
+
+    <div class="input-field col l12">
+      <input type="text" name="picture" id="picture_field" value="<%= user.picture%>">
+      <label for="picture_field">Profile Picture</label>
+    </div>
 
 
-  <div class="input-field col l12">
-    <button class="green btn">Update User Details</button>
+    <div class="input-field col l12">
+      <button class="green btn">Update User Details</button>
+    </div>
+
   </div>
 </form>
-
-</div>
