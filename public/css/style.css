@@ -2,12 +2,17 @@
   margin: 15px;
 }
 
-.nav-wrapper{
-  height: 20%;
+.brand-logo{
+font-family: 'Oleo Script', cursive;
 }
 
 .user{
   font-weight: bold;
+  color: #3f51b5;
+}
+
+.nav-wrapper{
+  height: 20%;
 }
 
 .row{

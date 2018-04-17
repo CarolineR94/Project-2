@@ -64,6 +64,10 @@ router.route('/users/:id/edit')
 
 
 
+// comment reoutes
+router.post('/photos/:id/comments', secureRoute, photos.commentCreate);
+
+
 
 router.route('/*').get((req, res) => {
   res.render('statics/404.ejs');

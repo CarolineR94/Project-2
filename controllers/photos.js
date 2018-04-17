@@ -39,6 +39,7 @@ function photosCreate(req, res) {
 function photosShow(req, res) {
   Photo
     .findById(req.params.id)
+    .populate('user')
     .exec()
     .then(photo => {
       if(!photo) return res.sendStatus(404);
@@ -54,6 +55,7 @@ function photosShow(req, res) {
 function photosEdit(req, res) {
   Photo
     .findById(req.params.id)
+    .populate('user')
     .exec()
     .then(photo => {
       if(!photo) return res.sendStatus(404);
@@ -96,6 +98,28 @@ function photosDelete(req, res) {
     });
 }
 
+
+function commentCreate(req, res){
+  Photo
+    .findById(req.params.id)
+    .exec()
+    .then(photo =>{
+      req.body.user = req.currentUser;
+
+      Comment
+        .create(req.body)
+        .then(comment => {
+          photo.comments.push(comment);
+          return photo.save();
+        })
+        .then(photo => {
+          res.redirect(`/photos/${photo._id}`);
+        });
+    });
+}
+
+
+
 module.exports = {
   index: photosIndex,
   new: photosNew,
@@ -103,5 +127,6 @@ module.exports = {
   show: photosShow,
   edit: photosEdit,
   update: photosUpdate,
-  delete: photosDelete
+  delete: photosDelete,
+  commentCreate: commentCreate
 };
