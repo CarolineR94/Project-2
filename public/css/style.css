@@ -25,6 +25,11 @@ font-family: 'Oleo Script', cursive;
   border: none;
 }
 
+.delete-comment button {
+  background: none;
+  border: none;
+}
+
 
 img.profilePicture{
   margin: 10px;

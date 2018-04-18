@@ -21,25 +21,25 @@ Photo.collection.drop();
 
 User.create([
   {
-    username: 'a',
+    username: 'Alice',
     email: 'a@a',
     password: 'a',
     passwordConfirmation: 'a',
-    picture: 'http://www.fillmurray.com/150/150'
+    picture: 'https://d3iw72m71ie81c.cloudfront.net/female-44.jpg'
   },
   {
-    username: 'b',
+    username: 'Ben',
     email: 'b@b',
     password: 'b',
     passwordConfirmation: 'b',
-    picture: 'http://www.fillmurray.com/150/150'
+    picture: 'https://d3iw72m71ie81c.cloudfront.net/male-3.jpg'
   },
   {
-    username: 'c',
+    username: 'Charlie',
     email: 'c@c',
     password: 'c',
     passwordConfirmation: 'c',
-    picture: 'http://www.fillmurray.com/150/150'
+    picture: ''
   }
 ])
   .then(users => {
@@ -47,38 +47,44 @@ User.create([
 
     return Photo.create([
       {
-        url: 'http://via.placeholder.com/350x150',
-        caption: 'caption 1',
+        url: 'https://user-images.githubusercontent.com/36160470/38931619-b3e77bb0-430b-11e8-861d-9689bd268c7c.png',
+        caption: 'Cook/Drinkall at GB final trials this weekend',
         comments: [],
         user: users[0]._id
       },
       {
-        url: 'http://via.placeholder.com/350x150',
-        caption: 'caption 2',
+        url: 'https://user-images.githubusercontent.com/36160470/38932747-02971dbc-430f-11e8-810f-0a369a4597e1.png',
+        caption: 'Men\'s winners from today\'s trial',
         comments: [],
         user: users[0]._id
       },
       {
-        url: 'http://via.placeholder.com/350x150',
-        caption: 'caption 3',
+        url: 'https://user-images.githubusercontent.com/36160470/38931806-4d04a778-430c-11e8-9baf-239e4e01a3a3.png',
+        caption: 'Women\'s pairs in action',
         comments: [],
         user: users[1]._id
       },
       {
-        url: 'http://via.placeholder.com/350x150',
-        caption: 'caption 4',
+        url: 'https://user-images.githubusercontent.com/36160470/38931855-69a1cd02-430c-11e8-8fa3-10101c02f02a.png',
+        caption: 'Vicky Thornley victorious in women\'s singles',
         comments: [],
         user: users[1]._id
       },
       {
-        url: 'http://via.placeholder.com/350x150',
-        caption: 'caption 5',
+        url: 'https://user-images.githubusercontent.com/36160470/38931904-92cedbac-430c-11e8-8298-c1d4b7dc6e4c.png',
+        caption: 'Tarrant/Sinclair',
         comments: [],
         user: users[1]._id
       },
       {
-        url: 'http://via.placeholder.com/350x150',
-        caption: 'caption 6',
+        url: 'https://user-images.githubusercontent.com/36160470/38931973-c63a81e4-430c-11e8-808d-e08608a3d953.png',
+        caption: 'Copus single',
+        comments: [],
+        user: users[2]._id
+      },
+      {
+        url: 'https://user-images.githubusercontent.com/36160470/38931999-da9b0b9a-430c-11e8-9bf0-14e003f9a098.png',
+        caption: 'Leander out in force',
         comments: [],
         user: users[2]._id
       }

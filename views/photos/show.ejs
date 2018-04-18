@@ -16,15 +16,15 @@
 
         <% photo.comments.forEach(comment => { %>
 
-          <p><strong><%= comment.user.username %></strong><%= comment.content %></p>
+          <p><%= comment.user.username %><%= comment.content %></p>
 
           <% if ((comment.user && comment.user.id) === locals.user.id) {%>
 
 
 
-          <form action="/photos/<%= photo.id %>/comments/<%= comment.id %>" method="post">
+          <form class="delete-comment" action="/photos/<%= photo.id %>/comments/<%= comment.id %>" method="post">
             <input type="hidden" name="_method" value="delete">
-            <button type="submit">Delete Comment</button>
+            <button type="submit" > <i class="material-icons">delete</i></button>
           </form>
 
           <% } %>
