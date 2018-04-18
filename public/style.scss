@@ -1,0 +1,53 @@
+.brand-logo{
+font-family: 'Oleo Script', cursive;
+}
+
+.user{
+  font-weight: bold;
+  color: #3f51b5;
+}
+
+.nav-wrapper{
+  height: 20%;
+}
+
+.row{
+  margin: 10% auto;
+}
+
+
+
+
+
+img.profilePicture{
+  margin: 10px;
+  height: 40px;
+  border-radius: 40px;
+}
+
+img.photoPicture{
+  margin-left: 0px;
+}
+
+
+/* ----------------buttons----------- */
+
+.vertical-button{
+  color: grey;
+}
+
+.add-comment button {
+  background: none;
+  border: none;
+}
+
+.delete-comment button {
+  background: none;
+  border: none;
+}
+
+.reveal{
+  margin: 30px 20px;
+  display: block;
+  width: 100px;
+}

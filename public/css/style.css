@@ -1,38 +1,39 @@
-.reveal{
-  margin: 15px;
-}
+.brand-logo {
+  font-family: 'Oleo Script', cursive; }
 
-.brand-logo{
-font-family: 'Oleo Script', cursive;
-}
-
-.user{
+.user {
   font-weight: bold;
-  color: #3f51b5;
-}
+  color: #3f51b5; }
 
-.nav-wrapper{
-  height: 20%;
-}
+.nav-wrapper {
+  height: 20%; }
 
-.row{
-  margin: 10% auto;
-}
+.row {
+  margin: 10% auto; }
 
+img.profilePicture {
+  margin: 10px;
+  height: 40px;
+  border-radius: 40px; }
+
+img.photoPicture {
+  margin-left: 0px; }
+
+/* ----------------buttons----------- */
+.vertical-button {
+  color: grey; }
 
 .add-comment button {
   background: none;
-  border: none;
-}
+  border: none; }
 
 .delete-comment button {
   background: none;
-  border: none;
-}
+  border: none; }
 
+.reveal {
+  margin: 30px 20px;
+  display: block;
+  width: 100px; }
 
-img.profilePicture{
-  margin: 10px;
-  height: 40px;
-  border-radius: 40px;
-}
+/*# sourceMappingURL=style.css.map */

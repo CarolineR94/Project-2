@@ -4,7 +4,7 @@
 
   <% photos.forEach(photo => { %>
     <div class="col s12 m4">
-      <div class="card">
+      <div class="card small">
 
         <div class="card-image">
           <img class="activator" src="<%= photo.url %>">
@@ -12,7 +12,7 @@
 
         <div class="card-content">
         <% if(photo.user) { %>
-        <p class="activator user"><%= photo.user.username %><i class="material-icons right">more_vert</i></p>
+        <p class="activator user"><%= photo.user.username %><i class="material-icons right vertical-button">more_vert</i></p>
         <% } %>
         <p class="activator"><%= photo.caption %></p>
         </div>
@@ -21,11 +21,11 @@
 
         <div class="card-reveal">
         <span class="card-title grey-text text-darken-4">Options<i class="material-icons right">close</i></span>
-          <a href="/photos/<%= photo._id %>" class="waves-effect waves-light btn reveal indigo accent-4">View</a>
-          <a href="/photos/<%= photo._id %>/edit"class="waves-effect waves-light btn reveal indigo accent-4">Edit</a>
+          <a href="/photos/<%= photo._id %>" class="waves-effect waves-light btn-small reveal indigo accent-4">View</a>
+          <a href="/photos/<%= photo._id %>/edit"class="waves-effect waves-light btn-small reveal indigo accent-4">Edit</a>
           <form method="POST" action="/photos/<%= photo._id %>">
            <input type="hidden" name="_method" value="delete">
-           <button class="waves-effect waves-light red btn reveal indigo darken-4">Delete</button>
+           <button class="waves-effect waves-light red btn-small reveal indigo darken-4">Delete</button>
          </form>
         </div>
 
