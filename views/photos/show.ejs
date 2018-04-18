@@ -9,38 +9,39 @@
       <div class="card-content">
 
         <% if(photo.user) { %>
-        <p><%= photo.user.username %></p>
+          <p><%= photo.user.username %></p>
         <% } %>
 
         <p><%= photo.caption %></p>
 
-
         <% photo.comments.forEach(comment => { %>
-          <div>
-            <p><strong><%= comment.user.username %></strong><%= comment.content %></p>
-            
-            <form action="/photos/<%= photo.id %>/comments/<%= comment.id %>" method="post">
-              <input type="hidden" name="_method" value="delete">
-              <button type="submit">Delete Comment</button>
-            </form>
-          </div>
+
+          <p><strong><%= comment.user.username %></strong><%= comment.content %></p>
+
+          <% if ((comment.user && comment.user.id) === locals.user.id) {%>
+
+
+
+          <form action="/photos/<%= photo.id %>/comments/<%= comment.id %>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit">Delete Comment</button>
+          </form>
+
+          <% } %>
+
         <% }) %>
 
+      </div>
 
 
-
-        <div class="card-action">
-          <div class="input-field">
-            <form class="add-comment" action="/photos/<%= photo.id %>/comments" method="post">
-              <textarea id="textarea<%= photo._id %>" class="materialize-textarea" name="content" placeholder="Add comment..."></textarea>
-              <button type="submit" name="button"><i class="material-icons">send</i></button>
-            </form>
-          </div>
+      <div class="card-action">
+        <div class="input-field">
+          <form class="add-comment" action="/photos/<%= photo.id %>/comments" method="post">
+            <textarea id="textarea<%= photo._id %>" class="materialize-textarea secondary-content" name="content" placeholder="Add comment..."></textarea>
+            <button type="submit" name="button"><i class="material-icons">send</i></button>
+          </form>
         </div>
-
-
-
-
+      </div>
 
     </div>
   </div>

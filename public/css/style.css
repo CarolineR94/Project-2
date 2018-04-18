@@ -19,17 +19,15 @@ font-family: 'Oleo Script', cursive;
   margin: 10% auto;
 }
 
- /* label focus color */
- .input-field input[type=text]:focus + label {
-   color: #000;
- }
- /* label underline focus color */
- .input-field input[type=text]:focus {
-   border-bottom: 1px solid #000;
-   box-shadow: 0 1px 0 0 #000;
- }
 
 .add-comment button {
   background: none;
   border: none;
+}
+
+
+img.profilePicture{
+  margin: 10px;
+  height: 40px;
+  border-radius: 40px;
 }

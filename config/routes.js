@@ -71,6 +71,8 @@ router.route('/photos/:id/comments')
 router.route('/photos/:photoId/comments/:commentId')
   .delete(photos.deleteComment);
 
+// errors
+
 router.route('/*').get((req, res) => {
   res.render('statics/404.ejs');
 });
