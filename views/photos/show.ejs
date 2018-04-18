@@ -15,16 +15,16 @@
         <p><%= photo.caption %></p>
 
         <% photo.comments.forEach(comment => { %>
-
+          <div class="delete-div">
           <p> <span class="user"><%= comment.user.username %></span> <%= comment.content %></p>
 
           <% if ((comment.user && comment.user.id) === locals.user.id) {%>
           <form class="delete-comment" action="/photos/<%= photo.id %>/comments/<%= comment.id %>" method="post">
             <input type="hidden" name="_method" value="delete">
-            <button type="submit"><i class="material-icons tiny show-icons">delete</i></button>
+            <button type="submit"><i class="material-icons tiny delete-icon">delete</i></button>
           </form>
           <% } %>
-
+          </div>
         <% }) %>
 
       </div>
@@ -34,7 +34,7 @@
         <div class="input-field">
           <form class="add-comment" action="/photos/<%= photo.id %>/comments" method="post">
             <textarea id="textarea<%= photo._id %>" class="materialize-textarea" name="content" placeholder="Add comment..."></textarea>
-            <button type="submit" name="button"><i class="material-icons tiny show-icons">send</i></button>
+            <button type="submit" name="button"><i class="material-icons tiny send-icon">send</i></button>
           </form>
         </div>
       </div>
