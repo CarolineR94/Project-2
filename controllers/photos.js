@@ -6,7 +6,7 @@ const Photo = require('../models/photo');
 function photosIndex(req, res) {
   Photo
     .find()
-    .populate('user')
+    .populate('user comments.user')
     .exec()
     .then(photos => {
       console.log(photos);
@@ -35,11 +35,10 @@ function photosCreate(req, res) {
     });
 }
 
-
 function photosShow(req, res) {
   Photo
     .findById(req.params.id)
-    .populate('user')
+    .populate('comments.user')
     .exec()
     .then(photo => {
       if(!photo) return res.sendStatus(404);
@@ -99,18 +98,38 @@ function photosDelete(req, res) {
 }
 
 
-function commentCreate(req, res){
+function commentsCreate(req, res) {
   Photo
     .findById(req.params.id)
     .exec()
-    .then(photo =>{
+    .then(photo => {
       req.body.user = req.currentUser;
-      const comment = new Comment(req.body);
 
-      photo.comments.push(comment);
+      photo.comments.push(req.body);
       return photo.save();
     })
     .then(photo => {
+      res.redirect(`/photos/${photo._id}`);
+    })
+    .catch(err => console.log(err));
+}
+
+function commentsDelete(req, res) {
+  // finding the photo that the comment must be added to
+  Photo
+    .findById(req.params.photoId)
+    .exec()
+    .then(photo => {
+      // finding comment to delete by it's id
+      const comment = photo.comments.id(req.params.commentId);
+      // deleting that comment
+      comment.remove();
+
+      // saving the photo
+      return photo.save();
+    })
+    .then(photo => {
+      // redirecting back to the photos show view
       res.redirect(`/photos/${photo._id}`);
     })
     .catch(err => console.log(err));
@@ -127,5 +146,6 @@ module.exports = {
   edit: photosEdit,
   update: photosUpdate,
   delete: photosDelete,
-  commentCreate: commentCreate
+  createComment: commentsCreate,
+  deleteComment: commentsDelete
 };

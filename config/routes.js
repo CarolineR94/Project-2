@@ -64,10 +64,12 @@ router.route('/users/:id/edit')
 
 
 
-// comment reoutes
-router.post('/photos/:id/comments', secureRoute, photos.commentCreate);
+// comment routes
+router.route('/photos/:id/comments')
+  .post(photos.createComment);
 
-
+router.route('/photos/:photoId/comments/:commentId')
+  .delete(photos.deleteComment);
 
 router.route('/*').get((req, res) => {
   res.render('statics/404.ejs');

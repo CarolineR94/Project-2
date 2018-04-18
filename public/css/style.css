@@ -28,3 +28,8 @@ font-family: 'Oleo Script', cursive;
    border-bottom: 1px solid #000;
    box-shadow: 0 1px 0 0 #000;
  }
+
+.add-comment button {
+  background: none;
+  border: none;
+}

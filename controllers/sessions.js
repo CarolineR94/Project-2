@@ -16,7 +16,7 @@ function createRoute(req, res) {
         req.flash('danger', 'Incorrect details.');
         res.status(401).render('auth/login', {message: 'Wrong credentials'});
       }
-      req.session.userId = user.id;
+      req.session.userId = user._id;
       res.redirect('/');
     });
 }

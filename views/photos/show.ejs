@@ -15,18 +15,29 @@
         <p><%= photo.caption %></p>
 
 
-        <% photo.comments.forEach(photo => { %>
-        <p><%= photo.comments %></p>
+        <% photo.comments.forEach(comment => { %>
+          <div>
+            <p><strong><%= comment.user.username %></strong><%= comment.content %></p>
+            
+            <form action="/photos/<%= photo.id %>/comments/<%= comment.id %>" method="post">
+              <input type="hidden" name="_method" value="delete">
+              <button type="submit">Delete Comment</button>
+            </form>
+          </div>
         <% }) %>
+
+
+
 
         <div class="card-action">
           <div class="input-field">
-            <textarea id="textarea<%= photo._id %>" class="materialize-textarea"></textarea>
-            <label for="textarea<%= photo._id %>">Add comment...</label>
+            <form class="add-comment" action="/photos/<%= photo.id %>/comments" method="post">
+              <textarea id="textarea<%= photo._id %>" class="materialize-textarea" name="content" placeholder="Add comment..."></textarea>
+              <button type="submit" name="button"><i class="material-icons">send</i></button>
+            </form>
           </div>
         </div>
-        
-      </div>
+
 
 
 
