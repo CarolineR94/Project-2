@@ -1,15 +1,16 @@
 <nav>
   <div class="nav-wrapper indigo">
     <a href="/" class="brand-logo center">Instagram</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if(locals.isLoggedIn){ %>
-         <li><a href="/photos/new"> <i class="material-icons">add_a_photo</i></a></li>
-         <li><a href="/logout"> <i class="material-icons">exit_to_app</i></a></li>
+         <li><a href="/photos/new"> <i class="material-icons navbar-icons">add_a_photo</i></a></li>
+         <li><a href="/logout"> <i class="material-icons navbar-icons">exit_to_app</i></a></li>
          <% if(locals.user.picture === '') { %>
-            <li class="profilePicture"><a href="/users/<%= locals.user._id %>/edit"> <i class="material-icons">person_outline</i></a></li>
+            <li class="profilePicture navbar-icons"><a href="/users/<%= locals.user._id %>/edit"> <i class="material-icons">person_outline</i></a></li>
              <% } else { %>
-               <li><a href="/users/<%= locals.user._id %>/edit"> <img class="profilePicture photoPicture" src="<%= locals.user.picture %>"></a></li>
+               <li><a href="/users/<%= locals.user._id %>/edit"> <img class="profilePicture photoPicture navbar-icons" src="<%= locals.user.picture %>"></a></li>
             <% } %>
             <% } else { %>
         <li><a href="/signup">Sign Up</a></li>
@@ -19,3 +20,9 @@
 
    </div>
  </nav>
+
+
+ <ul class="sidenav" id="mobile-demo">
+   <li><a href="/photos/new"> <i class="material-icons navbar-icons">add_a_photo</i>Add photo</a></li>
+   <li><a href="/logout"> <i class="material-icons navbar-icons">exit_to_app</i>Logout</a></li>
+ </ul>

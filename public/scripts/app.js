@@ -1,4 +1,3 @@
-// js functionality
-
-$(()=>{
+$(document).ready(function(){
+  $('.sidenav').sidenav();
 });

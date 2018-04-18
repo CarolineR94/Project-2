@@ -7,17 +7,21 @@ font-family: 'Oleo Script', cursive;
   color: #3f51b5;
 }
 
-.nav-wrapper{
-  height: 20%;
-}
-
 .row{
   margin: 10% auto;
 }
 
 
+// -------------- icons ----------------
+
+.show-icons:hover{
+   transform: scale(1.5);
+   color: #3f51b5;
+}
 
 
+
+// -------------- images ----------------
 
 img.profilePicture{
   margin: 10px;
@@ -30,7 +34,7 @@ img.photoPicture{
 }
 
 
-/* ----------------buttons----------- */
+// -------------- buttons ----------------
 
 .vertical-button{
   color: grey;

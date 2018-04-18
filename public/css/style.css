@@ -5,11 +5,12 @@
   font-weight: bold;
   color: #3f51b5; }
 
-.nav-wrapper {
-  height: 20%; }
-
 .row {
   margin: 10% auto; }
+
+.show-icons:hover {
+  transform: scale(1.5);
+  color: #3f51b5; }
 
 img.profilePicture {
   margin: 10px;
@@ -19,7 +20,6 @@ img.profilePicture {
 img.photoPicture {
   margin-left: 0px; }
 
-/* ----------------buttons----------- */
 .vertical-button {
   color: grey; }
 
