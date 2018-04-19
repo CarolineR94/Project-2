@@ -31,3 +31,4 @@ An imitation of instagram. Functionality includes logging in and out, adding, de
 
 
 ### Future plans:
+* File upload for photos rather than via URL

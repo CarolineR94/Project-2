@@ -17,7 +17,6 @@ function secureRoute (req, res, next){
   return next();
 }
 
-// router.get('/', (req, res) => res.redirect('/photos'));
 
 router.get('/', (req, res) => res.redirect('/photos'));
 
