@@ -38,7 +38,7 @@ function photosCreate(req, res) {
 function photosShow(req, res) {
   Photo
     .findById(req.params.id)
-    .populate('comments.user')
+    .populate('user comments.user')
     .exec()
     .then(photo => {
       if(!photo) return res.sendStatus(404);

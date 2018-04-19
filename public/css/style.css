@@ -55,7 +55,7 @@ img.photoPicture {
   top: 2px; }
 
 .card .card-content p {
-  margin: 0;
+  margin: 5px 0;
   text-align: left; }
 
 form.add-comment {
@@ -63,7 +63,6 @@ form.add-comment {
 
 .send-icon {
   position: absolute;
-  right: 0;
-  top: 1 px; }
+  right: 0; }
 
 /*# sourceMappingURL=style.css.map */
