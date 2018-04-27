@@ -22,8 +22,9 @@ An imitation of instagram. Functionality includes logging in and out, adding, de
 
 ### The process:
 1. Wireframing - Balsamiq and by hand
-2. Creating file structure
-3. 
+2. Created file structure
+3. Set up authentication
+4. 
 
 
 ### Issues faced:
