@@ -1,7 +1,3 @@
-// require user model
-// functions: new, create and delete route
-// export
-
 const User = require('../models/user');
 
 function newRoute(req, res) {

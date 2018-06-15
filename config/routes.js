@@ -25,7 +25,7 @@ router.get('/', (req, res) => res.redirect('/photos'));
 // photo routes
 
 
-router.route('/photos') // controllers/photos
+router.route('/photos')
   .get(photos.index)
   .post(photos.create);
 

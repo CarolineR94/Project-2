@@ -1,8 +1,3 @@
-// constants
-// set
-// use
-// app listen
-
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
